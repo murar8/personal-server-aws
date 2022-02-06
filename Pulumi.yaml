@@ -1,0 +1,3 @@
+name: personal-server-aws
+runtime: nodejs
+description: Personal server infrastructure.
