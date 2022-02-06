@@ -9,8 +9,8 @@
         "lint:eslint": "eslint ."
     },
     "dependencies": {
-        "@pulumi/pulumi": "^3.0.0",
-        "@pulumi/aws": "^4.0.0",
+        "@pulumi/pulumi": "^3.24.1",
+        "@pulumi/aws": "^4.37.1",
         "@pulumi/awsx": "^0.33.0"
     },
     "devDependencies": {
