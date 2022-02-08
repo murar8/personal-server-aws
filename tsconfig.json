@@ -1,4 +1,6 @@
 {
+    "include": ["lib", "index.ts"],
+
     "files": ["index.ts"],
 
     "compilerOptions": {

@@ -1,3 +1,6 @@
-import * as pulumi from "@pulumi/pulumi";
-import * as aws from "@pulumi/aws";
-import * as awsx from "@pulumi/awsx";
+import "./lib/vpc";
+import "./lib/server";
+import { eip, hostedZone } from "./lib/dns";
+
+export const nameServers = hostedZone.nameServers.apply((ns) => ns.join(", "));
+export const host = eip.address;

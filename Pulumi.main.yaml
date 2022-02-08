@@ -1,2 +1,7 @@
 config:
-  aws:region: eu-south-1
+    aws:region: eu-south-1
+    instance:type: c5a.2xlarge
+    instance:max-price: 0.3
+    instance:volume-size: 30
+    instance:public-key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKCfqnufJrf3pZxXvFcqbB1vUhyc0EFuDBuUEO7Q0Luq lnzmrr@gmail.com
+    network:domain: murar8.link
