@@ -29,6 +29,6 @@ export const spotRequest = new aws.ec2.SpotInstanceRequest("server-spot-request"
     instanceInterruptionBehavior: "stop",
     vpcSecurityGroupIds: [securityGroup.id],
     subnetId: pulumi.output(vpc.publicSubnetIds).apply((ids) => ids[0]),
-    rootBlockDevice: { volumeType: "gp3", volumeSize, deleteOnTermination: false },
+    rootBlockDevice: { volumeType: "gp3", volumeSize },
     waitForFulfillment: true,
 });

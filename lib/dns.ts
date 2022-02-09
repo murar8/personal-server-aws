@@ -9,14 +9,14 @@ const subdomain = config.require("subdomain");
 
 const fqdn = subdomain + "." + domain;
 
-export const eip = new aws.ec2.Eip("server-eip", { vpc: true, instance: spotRequest.spotInstanceId });
+const hostedZone = aws.route53.getZone({ name: domain, privateZone: false });
 
-export const hostedZone = new aws.route53.Zone("server-zone", { name: domain });
+export const eip = new aws.ec2.Eip("server-eip", { vpc: true, instance: spotRequest.spotInstanceId });
 
 export const dnsRecord = new aws.route53.Record("server-record", {
     name: fqdn,
     records: [eip.publicIp],
-    zoneId: hostedZone.id,
+    zoneId: pulumi.output(hostedZone).apply((z) => z.id),
     type: "A",
     ttl: 300,
 });
