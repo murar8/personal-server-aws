@@ -1,7 +1,10 @@
 config:
     aws:region: eu-south-1
-    instance:type: c5a.2xlarge
+    aws:accessKey:
+        secure: AAABAPEil5cLIFa6Z1vC8c2EzGY+nFrwzSiFjQULnb6Svc+zmwaiJv0IGx2J/KNvOxwLlg==
+    aws:secretKey:
+        secure: AAABABVIjCfrqOVIlmOFZAC/+lUJ+XzqS/1QEajxCA/5fuvAdG+OOACsroI0QDxYge6JY5tVHEp6b9r2/8ky/Up9ZPRIkhPF
     instance:max-price: 0.3
+    instance:type: c5a.2xlarge
     instance:volume-size: 30
-    instance:public-key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKCfqnufJrf3pZxXvFcqbB1vUhyc0EFuDBuUEO7Q0Luq lnzmrr@gmail.com
     network:domain: murar8.link

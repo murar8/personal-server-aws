@@ -1,0 +1,12 @@
+#cloud-config
+
+package_update: true
+
+package_upgrade: true
+
+ssh_authorized_keys:
+    - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKCfqnufJrf3pZxXvFcqbB1vUhyc0EFuDBuUEO7Q0Luq lnzmrr@gmail.com
+
+system_info:
+    default_user:
+        name: lmurarotto

@@ -11,7 +11,7 @@ export const eip = new aws.ec2.Eip("server-eip", { vpc: true, instance: spotRequ
 export const hostedZone = new aws.route53.Zone("server-zone", { name: domain });
 
 export const dnsRecord = new aws.route53.Record("server-record", {
-    name: "murar8.link",
+    name: "code.murar8.link",
     records: [eip.publicIp],
     zoneId: hostedZone.id,
     type: "A",
