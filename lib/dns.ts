@@ -5,13 +5,16 @@ import { spotRequest } from "./server";
 
 const config = new pulumi.Config("network");
 const domain = config.require("domain");
+const subdomain = config.require("subdomain");
+
+const fqdn = subdomain + "." + domain;
 
 export const eip = new aws.ec2.Eip("server-eip", { vpc: true, instance: spotRequest.spotInstanceId });
 
 export const hostedZone = new aws.route53.Zone("server-zone", { name: domain });
 
 export const dnsRecord = new aws.route53.Record("server-record", {
-    name: "code.murar8.link",
+    name: fqdn,
     records: [eip.publicIp],
     zoneId: hostedZone.id,
     type: "A",

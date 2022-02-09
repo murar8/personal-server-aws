@@ -4,7 +4,10 @@ config:
         secure: AAABAPEil5cLIFa6Z1vC8c2EzGY+nFrwzSiFjQULnb6Svc+zmwaiJv0IGx2J/KNvOxwLlg==
     aws:secretKey:
         secure: AAABABVIjCfrqOVIlmOFZAC/+lUJ+XzqS/1QEajxCA/5fuvAdG+OOACsroI0QDxYge6JY5tVHEp6b9r2/8ky/Up9ZPRIkhPF
-    instance:max-price: 0.3
+    instance:max-price: "0.3"
     instance:type: c5a.2xlarge
-    instance:volume-size: 30
+    instance:volume-size: "30"
+    instance:authorized-key:
+        secure: AAABAIOR7mPYP6YvCHPpD8ULVBpiNTblnTAVUFgTRgQiF9MXnH9XThWQTvUrC+VjjtBhQqiDrZPDfji/8s/Bs6r0Oc5PGD6/TfnvoESf/6QppHj1hgF7Vn5gDP00RlopxusevuE6LuAv/L/3tNBQC2BNn3aLccovSpCE5yt+bAhl
     network:domain: murar8.link
+    network:subdomain: code
