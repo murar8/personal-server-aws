@@ -36,3 +36,4 @@ jobs:
                   PUBLIC_KEY: "${{ secrets.PUBLIC_KEY }}"
 
             - run: scripts/destroy-image.sh
+              if: always()
