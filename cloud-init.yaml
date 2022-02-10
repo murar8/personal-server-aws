@@ -3,7 +3,11 @@
 package_update: true
 package_upgrade: true
 
-system_info: { default_user: { name: lmurarotto } }
+system_info:
+    default_user:
+        name: lmurarotto
+        lock_passwd: false
+        sudo: ["ALL=(ALL) ALL"]
 
 preserve_hostname: false
 manage_etc_hosts: true
