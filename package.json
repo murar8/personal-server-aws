@@ -3,6 +3,9 @@
     "version": "0.1.0",
     "author": "Lorenzo Murarotto <lnzmrr@gmail.com>",
     "repository": "https://github.com/murar8/personal-server-aws",
+    "engines": {
+        "node": ">=16"
+    },
     "scripts": {
         "prepare": "husky install",
         "lint:prettier": "prettier --check .",

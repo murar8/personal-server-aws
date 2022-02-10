@@ -1,6 +1,9 @@
 import * as awsx from "@pulumi/awsx";
 
-export const vpc = new awsx.ec2.Vpc("server-vpc", {});
+export const vpc = new awsx.ec2.Vpc("server-vpc", {
+    subnets: [{ type: "public" }],
+    requestedAvailabilityZones: 1,
+});
 
 export const securityGroup = new awsx.ec2.SecurityGroup("server-security-group", { vpc });
 
