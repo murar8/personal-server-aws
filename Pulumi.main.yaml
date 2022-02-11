@@ -3,5 +3,6 @@ config:
     instance:max-price: "0.3"
     instance:type: c5a.2xlarge
     instance:volume-size: "30"
+    instance:username: lmurarotto
     network:domain: murar8.link
     network:subdomain: code

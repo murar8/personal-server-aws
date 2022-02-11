@@ -8,6 +8,11 @@ const config = new pulumi.Config("instance");
 const instanceType = config.require("type");
 const volumeSize = config.requireNumber("volume-size");
 const spotPrice = config.require("max-price");
+const username = config.require("username");
+
+const networkConfig = new pulumi.Config("network");
+const domain = networkConfig.require("domain");
+const subdomain = networkConfig.require("subdomain");
 
 async function getAmi() {
     try {
@@ -26,18 +31,18 @@ async function getAmi() {
     }
 }
 
-const keyPair = new aws.ec2.KeyPair("server-key-pair", {
-    publicKey: process.env.PUBLIC_KEY!,
-});
-
-const userData = fs.readFileSync(path.join(__dirname, "..", "cloud-init.yaml")).toString();
+const userData = fs
+    .readFileSync(path.join(__dirname, "..", "cloud-init.yaml"))
+    .toString()
+    .replace("$PUBLIC_KEY", process.env.PUBLIC_KEY!)
+    .replace("$USER", username)
+    .replace("$FQDN", subdomain + "." + domain);
 
 export const spotRequest = new aws.ec2.SpotInstanceRequest("server-spot-request", {
     instanceType,
     spotPrice,
     userData,
     ami: getAmi().then((ami) => ami.id),
-    keyName: keyPair.keyName,
     instanceInterruptionBehavior: "stop",
     vpcSecurityGroupIds: [securityGroup.id],
     subnetId: pulumi.output(vpc.publicSubnetIds).apply((ids) => ids[0]),

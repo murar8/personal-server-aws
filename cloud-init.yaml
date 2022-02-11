@@ -5,8 +5,9 @@ package_upgrade: true
 
 system_info:
     default_user:
-        name: lmurarotto
+        name: "$USER"
+        ssh_authorized_keys: { "$PUBLIC_KEY" }
 
 preserve_hostname: false
 manage_etc_hosts: true
-fqdn: code.murar8.link
+fqdn: "$FQDN"
