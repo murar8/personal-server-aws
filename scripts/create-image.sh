@@ -19,7 +19,7 @@ if [ $INSTANCE_ID == "None" ]; then
 fi
 
 echo "Creating an image for instance $INSTANCE_ID..."
-IMAGE_ID=$(aws ec2 create-image --name $IMAGE_NAME --instance-id $INSTANCE_ID)
-aws ec2 wait image-available --image-ids $IMAGE_ID &>/dev/null
+IMAGE_ID=$(aws ec2 create-image --name "$IMAGE_NAME" --instance-id "$INSTANCE_ID")
+aws ec2 wait image-available --image-ids "$IMAGE_ID" &>/dev/null
 
 echo "Image created successfully."

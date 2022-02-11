@@ -31,10 +31,12 @@ async function getAmi() {
     }
 }
 
+if (!process.env.PUBLIC_KEY) throw new Error("PUBLIC_KEY not set.");
+
 const userData = fs
     .readFileSync(path.join(__dirname, "..", "cloud-init.yaml"))
     .toString()
-    .replace("$PUBLIC_KEY", process.env.PUBLIC_KEY!)
+    .replace("$PUBLIC_KEY", process.env.PUBLIC_KEY)
     .replace("$USER", username)
     .replace("$FQDN", subdomain + "." + domain);
 
