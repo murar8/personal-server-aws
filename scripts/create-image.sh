@@ -9,6 +9,7 @@ export AWS_DEFAULT_OUTPUT="text"
 
 INSTANCE_ID=$(
     aws ec2 describe-spot-instance-requests \
+        --filters "Name=state,Values=active" \
         --filters "Name=tag:Name,Values=${INSTANCE_NAME}" \
         --query '"SpotInstanceRequests"[0].InstanceId'
 )
